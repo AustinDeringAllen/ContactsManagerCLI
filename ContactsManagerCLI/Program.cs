@@ -6,8 +6,13 @@ namespace ContactsManagerCLI
     {
         public static void Main(string[] args)
         {
-            Contact contact = new Contact("Dylan Bird", "5555555555");
-            Console.WriteLine("{0} {1}", contact.Name, contact.Number);
+            if(Contacts.ReadContacts())
+            {
+                Contacts.contactList.ForEach(delegate (Contact contact)
+                {
+                    Console.WriteLine("{0} {1}", contact.Name, contact.Number);
+                });
+            }
         }
     }
 }
