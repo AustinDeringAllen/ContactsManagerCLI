@@ -6,7 +6,8 @@ namespace ContactsManagerCLI
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Contact contact = new Contact("Dylan Bird", "5555555555");
+            Console.WriteLine("{0} {1}", contact.Name, contact.Number);
         }
     }
 }
