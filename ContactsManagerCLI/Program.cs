@@ -25,5 +25,12 @@ namespace ContactsManagerCLI
             Console.WriteLine("5. Edit a contact");
             Console.WriteLine("6. Exit");
         }
+
+        public static void DisplayContacts(List<Contact> contacts)
+        {
+            contacts.ForEach(delegate (Contact contact) {
+                Console.WriteLine("{0} {1}", contact.Name, contact.Number);
+            });
+        }
     }
 }
