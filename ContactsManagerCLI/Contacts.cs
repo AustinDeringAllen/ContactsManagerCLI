@@ -46,6 +46,27 @@ namespace ContactsManagerCLI
             return false;
         }
 
+        public static bool WriteContacts()
+        {
+            string[] contacts = new string[ContactList.Count];
+
+            for(int i=0; i<ContactList.Count; i++)
+            {
+                contacts[i] = ContactList[i].Name + ":::" + ContactList[i].Number;
+            }
+
+            try
+            {
+                File.WriteAllLines(path, contacts);
+            } catch(Exception)
+            {
+                return false;
+            }
+
+            
+            return true;
+        }
+
         public static List<Contact> SearchContacts(string input)
         {
             List<Contact> bucket = new List<Contact>();

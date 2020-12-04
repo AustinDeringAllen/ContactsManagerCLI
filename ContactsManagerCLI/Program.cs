@@ -69,6 +69,7 @@ namespace ContactsManagerCLI
                     contact.Number = input;
 
                     Contacts.ContactList.Add(contact);
+                    Contacts.WriteContacts();
                     break;
                 case "4":
                     // Delete
