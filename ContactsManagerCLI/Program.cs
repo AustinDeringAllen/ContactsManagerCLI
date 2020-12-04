@@ -9,10 +9,12 @@ namespace ContactsManagerCLI
         {
             if (Contacts.ReadContacts())
             {
-                Contacts.ContactList.ForEach(delegate (Contact contact)
+                DisplayMenu();
+                if (GetInput())
                 {
-                    Console.WriteLine("{0} {1}", contact.Name, contact.Number);
-                });
+                    DisplayMenu();
+                    GetInput();
+                }
             }
         }
 
