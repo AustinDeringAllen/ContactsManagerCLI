@@ -67,6 +67,23 @@ namespace ContactsManagerCLI
             return true;
         }
 
+        public static void EditContact(int number)
+        {
+            string[] contactInfo = new string[2];
+            Contact contact = ContactList[number - 1];
+            Console.WriteLine("Enter new name or leave input blank to keep current name.");
+            contactInfo[0] = Console.ReadLine();
+            Console.WriteLine("----------");
+            Console.WriteLine("Enter new phone number or leave input blank to keep current phone number.");
+            contactInfo[1] = Console.ReadLine();
+            Console.WriteLine("----------");
+
+            if (!contactInfo[0].Trim().Equals(""))
+                ContactList[number - 1].Name = contactInfo[0].Trim();
+            if (!contactInfo[1].Trim().Equals(""))
+                ContactList[number - 1].Number = contactInfo[1].Trim();
+        }
+
         public static List<Contact> SearchContacts(string input)
         {
             List<Contact> bucket = new List<Contact>();
