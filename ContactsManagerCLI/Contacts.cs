@@ -7,7 +7,12 @@ namespace ContactsManagerCLI
     public static class Contacts
     {
         private static string path = Path.Combine(Directory.GetCurrentDirectory(), "contacts.txt");
-        public static List<Contact> contactList = new List<Contact>();
+
+        private static List<Contact> contactList = new List<Contact>();
+        public static List<Contact> ContactList
+        {
+            get { return contactList; }           
+        }
 
         public static bool ReadContacts()
         {
@@ -39,6 +44,26 @@ namespace ContactsManagerCLI
             }
 
             return false;
+        }
+
+        public static List<Contact> SearchContacts(string input)
+        {
+            List<Contact> bucket = new List<Contact>();
+            ContactList.ForEach(delegate (Contact contact)
+            {
+                if(contact.Name.ToLower().Contains(input) || contact.Number.Contains(input))
+                {
+                    bucket.Add(contact);
+                }
+            });
+
+            if(bucket.Count == 0)
+            {
+                Console.WriteLine("No Results Found!");
+                return ContactList;
+            }
+
+            return bucket;
         }
     }
 }
