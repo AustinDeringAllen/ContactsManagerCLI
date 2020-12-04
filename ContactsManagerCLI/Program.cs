@@ -76,6 +76,27 @@ namespace ContactsManagerCLI
                     break;
                 case "5":
                     // Edit
+                    int contactNumber;
+                    while (true)
+                    {
+                        DisplayContacts(Contacts.ContactList);
+                        Console.WriteLine("-----------");
+                        Console.WriteLine("Input Contact # to edit:");
+                        input = Console.ReadLine();
+                        Console.WriteLine("-----------");
+                        try
+                        {
+                            contactNumber = int.Parse(input);
+                            break;
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Input was not a number try again.");
+                            Console.WriteLine("----------");
+                        }
+                    }
+
+                    Contacts.EditContact(contactNumber);
                     break;
                 case "6":
                     return false;
