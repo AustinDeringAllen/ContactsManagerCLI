@@ -26,6 +26,38 @@ namespace ContactsManagerCLI
             Console.WriteLine("6. Exit");
         }
 
+        public static bool GetInput()
+        {
+            string input = Console.ReadLine();
+
+            switch (input)
+            {
+                case "1":
+                    if (Contacts.ContactList.Count != 0)
+                        DisplayContacts(Contacts.ContactList);
+                    else
+                        Console.WriteLine("Contact list is empty.");
+                    break;
+                case "2":
+                    input = Console.ReadLine();
+                    DisplayContacts(Contacts.SearchContacts(input));
+                    break;
+                case "3":
+                    break;
+                case "4":
+                    break;
+                case "5":
+                    break;
+                case "6":
+                    return false;
+                default:
+                    Console.WriteLine("Input not recognized try again.");
+                    break;
+            }
+
+            return true;
+        }
+
         public static void DisplayContacts(List<Contact> contacts)
         {
             contacts.ForEach(delegate (Contact contact) {
