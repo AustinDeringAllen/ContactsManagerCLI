@@ -7,6 +7,8 @@ namespace ContactsManagerCLI
 
         public string Number { get; set; }
 
+        public Contact() { }
+
         public Contact(string name, string number)
         {
             Name = name;
