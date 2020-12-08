@@ -67,6 +67,11 @@ namespace ContactsManagerCLI
             return true;
         }
 
+        public static void DeleteContact(int number)
+        {
+            ContactList.RemoveRange(number, 1);
+        }
+
         public static void EditContact(int number)
         {
             string[] contactInfo = new string[2];
