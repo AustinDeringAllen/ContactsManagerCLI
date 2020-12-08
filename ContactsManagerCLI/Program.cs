@@ -73,6 +73,26 @@ namespace ContactsManagerCLI
                     break;
                 case "4":
                     // Delete
+                    int numberToDelete;
+                    while (true)
+                    {
+                        DisplayContacts(Contacts.ContactList);
+                        Console.WriteLine("-----------");
+                        Console.WriteLine("Input Contact # to edit:");
+                        input = Console.ReadLine();
+                        Console.WriteLine("-----------");
+                        try
+                        {
+                            numberToDelete = int.Parse(input);
+                            break;
+                        }
+                        catch
+                        {
+                            Console.WriteLine("Input was not a number try again.");
+                            Console.WriteLine("----------");
+                        }
+                    }
+                    Contacts.DeleteContact(numberToDelete);
                     break;
                 case "5":
                     // Edit
