@@ -93,6 +93,7 @@ namespace ContactsManagerCLI
                         }
                     }
                     Contacts.DeleteContact(numberToDelete);
+                    Contacts.WriteContacts();
                     break;
                 case "5":
                     // Edit
@@ -117,6 +118,7 @@ namespace ContactsManagerCLI
                     }
 
                     Contacts.EditContact(contactNumber);
+                    Contacts.WriteContacts();
                     break;
                 case "6":
                     return false;
