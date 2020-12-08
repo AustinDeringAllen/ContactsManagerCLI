@@ -69,7 +69,7 @@ namespace ContactsManagerCLI
 
         public static void DeleteContact(int number)
         {
-            ContactList.RemoveRange(number, 1);
+            ContactList.RemoveRange(number-1, 1);
         }
 
         public static void EditContact(int number)
