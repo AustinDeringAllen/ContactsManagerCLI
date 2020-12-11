@@ -134,8 +134,10 @@ namespace ContactsManagerCLI
 
         public static void DisplayContacts(List<Contact> contacts)
         {
+            int i = 1;
             contacts.ForEach(delegate (Contact contact) {
-                Console.WriteLine("{0} {1}", contact.Name, contact.Number);
+                Console.WriteLine(i + ": {0} {1}", contact.Name, contact.Number);
+                i++;
             });
         }
     }
